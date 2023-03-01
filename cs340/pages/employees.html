@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Orders</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="title">Employees</h1>
+            <p id="description">Following are the Employees:</p>
+        </div>
+
+        <h2>Employees</h2>
+<table id="employees-table" class="main-table">
+
+  <thead>
+    <tr>
+      <th>Employee ID</th>
+      <th>Employee Name</th>
+      <th>Email</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr data-value=1>
+      <td>1</td>
+      <td>Matt</td>
+      <td>matt@gmail.com</td>
+      </td>
+      <td><button onclick="deleteEmployee(2)">Delete</button></td>
+    </tr>
+    <tr data-value=2>
+      <td>2</td>
+      <td>Jim</td>
+      <td>Jim@gmail.com</td>
+      </td>
+      <td><button onclick="deleteEmployee(3)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+        <td>3</td>
+        <td>Jack</td>
+        <td>jack@gmail.com</td>
+        </td>
+        <td><button onclick="deleteEmployee(3)">Delete</button></td>
+      </tr>
+   </tbody>
+</table>
+
+        
+<br>
+
+<div class="section">
+  <h3 class="h3-create">Create Employees</h3>
+  <form id="add-employee-form" method="POST" action="/add-employee">
+    <table class="sub-table">
+      <tr>
+        <td><label for="input-employee_name">Name: </label></td>
+        <td><input type="text" name="input-employee_name" required></td>
+        <td>*Required</td>
+      </tr>
+      <tr>
+        <td><label for="input-employee_email">Email: </label></td>
+        <td><input type="text" name="input-employee_email" required></td>
+        <td>*Required</td>
+      </tr>
+      
+    </table>
+    <div class="form-btns">
+      <input type="submit" value="Create">
+      <a href='/employees.html'><input type="button" value="Cancel"></a>
+    </div>
+  </form>
+</div>
+
+<div class="section">
+    <h3>Update Employee</h3>
+    <p><em>To update employee data select an Employee Id from the drop-down menu and input any new data.</em></p>
+    <form id="update-employee" method="POST" action="/update-employee">
+      <table class="sub-table">
+        <tr>
+          <td><label for="employee_id">Select an Employee: </label></td>
+          <td><select name="employee_id" id="update_employee_select" onChange="formFill()" required>
+              <option value="employee">Select an Employee</option>
+              <option value="1">Matt</option>
+              <option value="2">Jim</option>
+              <option value="3">Jack</option>
+            </select></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_employee_name">Name: </label></td>
+          <td><input type="text" name="update_employee_name" id="update_employee_name" required></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_employee_email">Email: </label></td>
+          <td><textarea name="update_employee_email" id="update_employee_email"></textarea></td>
+        </tr>
+      </table>
+      <div class="form-btns">
+        <input type="submit" value="Update">
+        <a href='/employees.html'><input type="button" value="Cancel"></a>
+      </div>
+    </form>
+  </div>
+        
+    </div>
+    
+</body>
+</html>

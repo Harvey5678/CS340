@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Orders</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="title">Wheels</h1>
+            <p id="description">Following are the Wheels:</p>
+        </div>
+
+        <h2>Wheels</h2>
+<table id="wheels-table" class="main-table">
+
+  <thead>
+    <tr>
+      <th>Wheel ID</th>
+      <th>Wheel Name</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr data-value=2>
+      <td>1</td>
+      <td>Enkei RPF!</td>
+      </td>
+      <td><button onclick="deleteWheel(1)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+      <td>2</td>
+      <td>Rays TE37</td>
+      </td>
+      <td><button onclick="deleteWheel(2)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+        <td>3</td>
+        <td>Advan Racing GT</td>
+        </td>
+        <td><button onclick="deleteWheel(3)">Delete</button></td>
+      </tr>
+   </tbody>
+</table>
+
+        
+<br>
+<div class='section'>
+	<h3>Search Wheels</h3>
+	<form id='search-wheel-html' method='GET' action='/wheels.html'>
+		<table class='sub-table'>
+			<tr>
+				<td><p><label for='input-wheel_name'>Wheel name: </label></p></td>
+				<td><input
+						type='text'
+						name='wheel_name'
+						id='input-wheel_name-html-search'
+						required
+					/></td>
+			</tr>
+		</table>
+		<div class='form-btns'>
+			<input type='submit' value='Search' />
+			<a href='/wheels.html'><input type='button' value='Reset' /></a>
+		</div>
+	</form>
+</div>
+
+<div class="section">
+  <h3 class="h3-create">Create Wheels</h3>
+  <form id="add-wheel-form" method="POST" action="/add-wheel">
+    <table class="sub-table">
+      <tr>
+        <td><label for="input-wheel_name">Wheels Name: </label></td>
+        <td><input type="text" name="input-wheel_name" required></td>
+        <td>*Required</td>
+      </tr>
+      
+    </table>
+    <div class="form-btns">
+      <input type="submit" value="Create">
+      <a href='/wheels.html'><input type="button" value="Cancel"></a>
+    </div>
+  </form>
+</div>
+
+<div class="section">
+    <h3>Update Wheel</h3>
+    <p><em>To update wheel data select an Wheel Id from the drop-down menu and input any new data.</em></p>
+    <form id="update-wheel" method="POST" action="/update-wheel">
+      <table class="sub-table">
+        <tr>
+          <td><label for="wheel_id">Select an Wheel: </label></td>
+          <td><select name="wheel_id" id="update_wheel_select" onChange="formFill()" required>
+              <option value="wheel">Select an Wheel</option>
+              <option value="1">Wheel 1</option>
+              <option value="2">Wheel 2</option>
+              <option value="3">Wheel 3</option>
+            </select></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_wheel_name">Wheels Name: </label></td>
+          <td><input type="text" name="update_wheel_name" id="update_wheel_name" required></td>
+          <td>*Required</td>
+        </tr>
+      </table>
+      <div class="form-btns">
+        <input type="submit" value="Update">
+        <a href='/wheels.html'><input type="button" value="Cancel"></a>
+      </div>
+    </form>
+  </div>
+        
+    </div>
+    
+</body>
+</html>

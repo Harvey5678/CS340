@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Orders</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="title">Customers</h1>
+            <p id="description">Following are the Customers:</p>
+        </div>
+
+        <h2>Customers</h2>
+<table id="customers-table" class="main-table">
+
+  <thead>
+    <tr>
+      <th>Customer ID</th>
+      <th>Customer Name</th>
+      <th>Email</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr data-value=2>
+      <td>1</td>
+      <td>Matt</td>
+      <td>matt@gmail.com</td>
+      </td>
+      <td><button onclick="deleteCustomer(2)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+      <td>2</td>
+      <td>Jim</td>
+      <td>Jim@gmail.com</td>
+      </td>
+      <td><button onclick="deleteCustomer(3)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+        <td>3</td>
+        <td>Jack</td>
+        <td>jack@gmail.com</td>
+        </td>
+        <td><button onclick="deleteCustomer(3)">Delete</button></td>
+      </tr>
+   </tbody>
+</table>
+
+        
+<br>
+
+<div class="section">
+  <h3 class="h3-create">Create Customers</h3>
+  <form id="add-customer-form" method="POST" action="/add-customer">
+    <table class="sub-table">
+      <tr>
+        <td><label for="input-customer_name">Name: </label></td>
+        <td><input type="text" name="input-customer_name" required></td>
+        <td>*Required</td>
+      </tr>
+      <tr>
+        <td><label for="input-customer_email">Email: </label></td>
+        <td><input type="text" name="input-customer_email" required></td>
+        <td>*Required</td>
+      </tr>
+      
+    </table>
+    <div class="form-btns">
+      <input type="submit" value="Create">
+      <a href='/customers.html'><input type="button" value="Cancel"></a>
+    </div>
+  </form>
+</div>
+
+<div class="section">
+    <h3>Update Customer</h3>
+    <p><em>To update customer data select an Customer Id from the drop-down menu and input any new data.</em></p>
+    <form id="update-customer" method="POST" action="/update-customer">
+      <table class="sub-table">
+        <tr>
+          <td><label for="customer_id">Select an Customer: </label></td>
+          <td><select name="customer_id" id="update_customer_select" onChange="formFill()" required>
+              <option value="customer">Select an Customer</option>
+              <option value="1">Matt</option>
+              <option value="2">Jim</option>
+              <option value="3">Jack</option>
+            </select></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_customer_name">Name: </label></td>
+          <td><input type="text" name="update_customer_name" id="update_customer_name" required></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_customer_email">Email: </label></td>
+          <td><textarea name="update_customer_email" id="update_customer_email"></textarea></td>
+        </tr>
+      </table>
+      <div class="form-btns">
+        <input type="submit" value="Update">
+        <a href='/customers.html'><input type="button" value="Cancel"></a>
+      </div>
+    </form>
+  </div>
+        
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Orders</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="title">Orders</h1>
+            <p id="description">Following are the Orders:</p>
+        </div>
+
+        <h2>Orders</h2>
+<table id="orders-table" class="main-table">
+
+  <thead>
+    <tr>
+      <th>Order ID</th>
+      <th>date</th>
+      <th>Location ID</th>
+      <th>Customer ID</th>
+      <th>Employee ID</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr data-value=1>
+      <td>1</td>
+      <td>05-02-2018</td>
+      <td>3</td>
+      <td>2</td>
+      <td>3</td>
+      </td>
+      <td><button onclick="deleteOrder(1)">Delete</button></td>
+    </tr>
+    <tr data-value=1>
+        <td>2</td>
+        <td>05-02-2008</td>
+        <td>2</td>
+        <td>1</td>
+        <td>3</td>
+        </td>
+        <td><button onclick="deleteOrder(2)">Delete</button></td>
+      </tr>
+      <tr data-value=1>
+        <td>3</td>
+        <td>07-02-2018</td>
+        <td>1</td>
+        <td>4</td>
+        <td>3</td>
+        </td>
+        <td><button onclick="deleteOrder(3)">Delete</button></td>
+      </tr>
+   </tbody>
+</table>
+
+        
+<br>
+
+<div class="section">
+  <h3 class="h3-create">Create Orders</h3>
+  <form id="add-order-form" method="POST" action="/add-order">
+    <table class="sub-table">
+        <tr>
+            <td><label for="input-order_date">Order Date: </label></td>
+            <td><input type="date" name="input-order_date" id="input-order_date" required></td>
+            <td>*Required</td>
+        </tr>
+      <tr>
+        <td><label for="input-order_location_id">Location ID: </label></td>
+        <td><input type="text" name="input-order_location_id" required></td>
+        <td>*Required</td>
+      </tr>
+      <tr>
+        <td><label for="input-order_customer_id">Customer ID: </label></td>
+        <td><input type="text" name="input-order_customer_id" required></td>
+        <td>*Required</td>
+      </tr>
+      <tr>
+        <td><label for="input-order_employee_id">Employee ID: </label></td>
+        <td><input type="text" name="input-order_employee_id" required></td>
+        <td>*Required</td>
+      </tr>
+      
+    </table>
+    <div class="form-btns">
+      <input type="submit" value="Create">
+      <a href='/orders.html'><input type="button" value="Cancel"></a>
+    </div>
+  </form>
+</div>
+
+<div class="section">
+    <h3>Update Order</h3>
+    <p><em>To update order data select an Order Id from the drop-down menu and input any new data.</em></p>
+    <form id="update-order" method="POST" action="/update-order">
+      <table class="sub-table">
+        <tr>
+          <td><label for="order_id">Select an Order: </label></td>
+          <td><select name="order_id" id="update_order_select" onChange="formFill()" required>
+              <option value="order">Select an Order</option>
+              <option value="1">Order 1</option>
+              <option value="2">Order 2</option>
+              <option value="3">Order 3</option>
+            </select></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+            <td><label for="update_order_date">Date: </label></td>
+            <td><input type="date" name="update_order_date" id="update_order_date" required></td>
+            <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_order_location_id">Location ID: </label></td>
+          <td><textarea name="update_order_location_id" id="update_order_location_id"></textarea></td>
+        </tr>
+        <tr>
+            <td><label for="update_order_customer_id">Customer ID: </label></td>
+            <td><textarea name="update_order_customer_id" id="update_order_customer_id"></textarea></td>
+          </tr>
+          <tr>
+            <td><label for="update_order_employee_id">Employee ID: </label></td>
+            <td><textarea name="update_order_employee_id" id="update_order_employee_id"></textarea></td>
+          </tr>
+      </table>
+      <div class="form-btns">
+        <input type="submit" value="Update">
+        <a href='/orders.html'><input type="button" value="Cancel"></a>
+      </div>
+    </form>
+  </div>
+        
+    </div>
+    
+</body>
+</html>

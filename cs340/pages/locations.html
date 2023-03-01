@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <title>Orders</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1 id="title">Locations</h1>
+            <p id="description">Following are the Locations:</p>
+        </div>
+
+        <h2>Locations</h2>
+<table id="locations-table" class="main-table">
+
+  <thead>
+    <tr>
+      <th>Location ID</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <tr data-value=2>
+      <td>1</td>
+      <td>3928 fake St</td>
+      </td>
+      <td><button onclick="deleteLocation(1)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+      <td>2</td>
+      <td>79573 alsofake Ct</td>
+      </td>
+      <td><button onclick="deleteLocation(2)">Delete</button></td>
+    </tr>
+    <tr data-value=3>
+        <td>3</td>
+        <td>5345 stillfake Ave</td>
+        </td>
+        <td><button onclick="deleteLocation(3)">Delete</button></td>
+      </tr>
+   </tbody>
+</table>
+
+        
+<br>
+
+<div class="section">
+  <h3 class="h3-create">Create Locations</h3>
+  <form id="add-location-form" method="POST" action="/add-location">
+    <table class="sub-table">
+      <tr>
+        <td><label for="input-location_address">Address: </label></td>
+        <td><input type="text" name="input-location_address" required></td>
+        <td>*Required</td>
+      </tr>
+      
+    </table>
+    <div class="form-btns">
+      <input type="submit" value="Create">
+      <a href='/locations.html'><input type="button" value="Cancel"></a>
+    </div>
+  </form>
+</div>
+
+<div class="section">
+    <h3>Update Location</h3>
+    <p><em>To update location data select an Location Id from the drop-down menu and input any new data.</em></p>
+    <form id="update-location" method="POST" action="/update-location">
+      <table class="sub-table">
+        <tr>
+          <td><label for="location_id">Select an Location: </label></td>
+          <td><select name="location_id" id="update_location_select" onChange="formFill()" required>
+              <option value="location">Select an Location</option>
+              <option value="1">Location 1</option>
+              <option value="2">Location 2</option>
+              <option value="3">Location 3</option>
+            </select></td>
+          <td>*Required</td>
+        </tr>
+        <tr>
+          <td><label for="update_location_address">Address: </label></td>
+          <td><input type="text" name="update_location_address" id="update_location_address" required></td>
+          <td>*Required</td>
+        </tr>
+      </table>
+      <div class="form-btns">
+        <input type="submit" value="Update">
+        <a href='/locations.html'><input type="button" value="Cancel"></a>
+      </div>
+    </form>
+  </div>
+        
+    </div>
+    
+</body>
+</html>
